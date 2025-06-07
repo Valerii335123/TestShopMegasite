@@ -1,6 +1,8 @@
 <?php
 
 use App\Livewire\Cart\Cart;
+use App\Livewire\Cart\Checkout;
+use App\Livewire\Cart\CheckoutSuccess;
 use App\Livewire\Product\Index;
 use App\Livewire\Product\Show;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +17,5 @@ Route::group(['prefix' => '/products'], function () {
 });
 
 Route::get('/cart', Cart::class)->name('cart');
+Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/checkout/success', CheckoutSuccess::class)->name('checkout.success');

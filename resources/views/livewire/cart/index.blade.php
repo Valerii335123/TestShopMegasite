@@ -61,7 +61,7 @@
                     {{__('pages.cart.total')}}
                     ${{ number_format(\App\Helpers\MoneyHelper::toDecimal($this->cartData->getTotalPrice()), 2) }}
                 </div>
-                <a href=""
+                <a href="{{ route('checkout') }}"
                    class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
                     {{__('pages.cart.button.checkout')}}
                 </a>

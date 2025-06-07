@@ -89,4 +89,38 @@ class OrderServiceTest extends TestCase
         $product->refresh();
         $this->assertEquals(3, $product->stock);
     }
+
+    /**
+     * @covers \App\Services\OrderService::isAllProductsAvailable
+     */
+    public function testIsAllProductsAvailable(): void
+    {
+        /** Preparing data */
+
+        $product1 = Product::factory()->create(['stock' => 5]);
+        $product2 = Product::factory()->create(['stock' => 2]);
+
+        // Create cart items
+        $cartItem1 = CartItemDTO::from([
+            'product' => $product1,
+            'quantity' => 3  // Available (5 in stock)
+        ]);
+        $cartItem2 = CartItemDTO::from([
+            'product' => $product2,
+            'quantity' => 3  // Not available (only 2 in stock)
+        ]);
+
+        /** Case only includes item with sufficient stock */
+
+        $cartDataAvailable = CartDataDTO::from([
+            'items' => [$cartItem1]
+        ]);
+        $this->assertTrue($this->orderService->isAllProductsAvailable($cartDataAvailable));
+
+        /** Case when not all products are available */
+        $cartDataNotAvailable = CartDataDTO::from([
+            'items' => [$cartItem1, $cartItem2]  // Includes item with insufficient stock
+        ]);
+        $this->assertFalse($this->orderService->isAllProductsAvailable($cartDataNotAvailable));
+    }
 } 

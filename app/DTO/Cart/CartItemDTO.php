@@ -23,6 +23,11 @@ class CartItemDTO extends Data
         ];
     }
 
+    public function isProductQuantityAvailable(): bool
+    {
+        return $this->product->stock >= $this->quantity;
+    }
+
     public static function createFromSession(array $data): self
     {
         return self::from([

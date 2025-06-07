@@ -28,6 +28,32 @@ return [
             'no_products' => 'No products found.',
         ],
     ],
+    'checkout' => [
+        'header' => 'Checkout',
+        'first_name' => 'First Name:',
+        'last_name' => 'Last Name:',
+        'email' => 'Email:',
+        'phone' => 'Phone:',
+        'address' => 'Address:',
+        'delivery_method' => 'Delivery method:',
+        'delivery_method_values' => [
+            'pickup' => 'Pickup',
+            'post' => 'Postal Delivery'
+        ],
+        'payment_method' => 'Payment method:',
+        'payment_method_values' => [
+            'online' => 'Online',
+            'postpaid' => 'Cash on Delivery'
+        ],
+        'submit' => 'Submit',
+        'back_to_cart' => 'Back to Cart',
+    ],
+    'checkout_success' => [
+        'title' => 'Order Successfully Placed!',
+        'content' => "Thank you for your order. We'll process it right away.",
+        'button_text' => 'Continue Shopping',
+    ],
+
     'cart' => [
         'header' => 'Shopping Cart',
         'total' => 'Total:',
