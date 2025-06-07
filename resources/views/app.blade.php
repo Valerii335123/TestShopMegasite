@@ -23,6 +23,13 @@
                         </a>
                     </div>
                 </div>
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="{{ route('cart') }}" class="text-xl font-bold text-indigo-600">
+                            {{__('pages.common.cart_title')}}
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
